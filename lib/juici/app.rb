@@ -4,7 +4,6 @@ end
 
 module Juici
   class App
-    @@watchers = []
 
     def self.shutdown
       ::Juici.dbgp "Shutting down Juici"

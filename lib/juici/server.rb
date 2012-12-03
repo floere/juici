@@ -46,22 +46,12 @@ module Juici
         erb(template, {}, opts)
       end
     end
-
-    get '/about' do
-      Controllers::Index.new.about do |template, opts|
-        erb(template, {}, opts)
-      end
-    end
-
-    get '/builds' do
-      Controllers::Index.new.builds do |template, opts|
-        erb(template, {}, opts)
-      end
-    end
-
-    get '/support' do
-      Controllers::Index.new.support do |template, opts|
-        erb(template, {}, opts)
+    
+    %w{about builds support}.each do |action|
+      get "/#{action}" do
+        Controllers::Index.new.send action do |template, opts|
+          erb(template, {}, opts)
+        end
       end
     end
 

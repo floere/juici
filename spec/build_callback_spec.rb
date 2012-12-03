@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Juicy::Build::Callback" do
 
-  it "should call #process! on each of it's callbacks" do
+  it "should call #process! on each of its callbacks" do
     def mock_callback
       mock(:payload= => nil).tap do |callback|
         callback.expects(:process!).once
